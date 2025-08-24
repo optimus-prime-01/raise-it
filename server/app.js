@@ -34,8 +34,8 @@ app.use(cors({
   origin: [
     'http://localhost:5173', 
     'http://localhost:5174',
-    process.env.FRONTEND_URL
-  ].filter(Boolean), // Allow both ports and production URL
+    'https://raise-it-eight.vercel.app'  // Your production frontend URL
+  ],
   credentials: true
 }));
 app.use(xss());
