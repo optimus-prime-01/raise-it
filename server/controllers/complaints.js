@@ -255,10 +255,10 @@ const sendEmail = async (to, subject, body, head) => {
       host: "smtp.gmail.com",
       port: 465,
       secure: true,
-      auth: { // the account u control and authenrticate with
-        user: 'grievanceportaliiita4@gmail.com',
-        pass: 'bryoccqsbhkhnhah',
-      },
+              auth: { // the account u control and authenrticate with
+          user: process.env.EMAIL_USER || 'grievanceportaliiita4@gmail.com',
+          pass: process.env.EMAIL_PASS || 'your_email_password',
+        },
     });
 
     let info = await transporter.sendMail({

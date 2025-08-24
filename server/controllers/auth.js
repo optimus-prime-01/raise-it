@@ -63,15 +63,15 @@ const forgotPassword = async (req, res) => {
         port: 465,
         secure: true,
         auth: {
-          user: 'grievanceportaliiita4@gmail.com',
-          pass: 'bryoccqsbhkhnhah',
+          user: process.env.EMAIL_USER || 'grievanceportaliiita4@gmail.com',
+          pass: process.env.EMAIL_PASS || 'your_email_password',
         },
     });
   
     // Compose the email message with the password reset link
     // const resetUrl = `${req.protocol}://${req.headers.host}/api/v1/auth/reset-password/${resetToken}`;
     const message = {
-      from: 'grievanceportaliiita4@gmail.com', // Your Gmail email address
+      from: process.env.EMAIL_USER || 'grievanceportaliiita4@gmail.com', // Your Gmail email address
       to: email,
       subject: 'Password reset request',
       html: `
